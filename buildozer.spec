@@ -14,7 +14,6 @@ source.exclude_dirs = tests, bin, venv, .venv, .buildozer, __pycache__, .git
 source.exclude_patterns = api_key.txt, *.db, *.md
 
 # Version is read from __version__ in main.py (currently "0.2.0")
-icon.filename = %(source.dir)s/src/icon.png
 version.regex = __version__ = ['"](.*)['"]
 version.filename = %(source.dir)s/main.py
 
@@ -36,7 +35,7 @@ requirements = python3,kivy==2.3.0,plyer,certifi,pillow,pyjnius
 # ---------------------------------------------------------------
 orientation = portrait
 fullscreen = 0
-# icon.filename = %(source.dir)s/assets/icon.png
+icon.filename = %(source.dir)s/src/icon.png
 # presplash.filename = %(source.dir)s/assets/presplash.png
 
 # ---------------------------------------------------------------
