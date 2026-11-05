@@ -1,4 +1,3 @@
-[Uploading README.md…]()
 # Smart Medication Assistant
 
 > A friendly Android/desktop medicine organizer with exact-time reminders,

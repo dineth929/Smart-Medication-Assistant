@@ -1,0 +1,8 @@
+# Desktop development (Windows / macOS / Linux)
+kivy[base]
+plyer
+certifi
+pillow
+
+# Android builds use buildozer.spec instead. Use:
+# requirements = python3,kivy,pyjnius,plyer,certifi,pillow,android

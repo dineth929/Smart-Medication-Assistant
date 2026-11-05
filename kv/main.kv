@@ -1,0 +1,30 @@
+<ScheduleScreen>:
+    name: "schedule"
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(18)
+        spacing: dp(10)
+        ScreenTitle:
+            text: "Daily schedule"
+        PrimaryButton:
+            text: "+ Add schedule"
+            on_release: app.open_schedule_popup()
+        ScrollView:
+            GridLayout:
+                id: schedule_list
+                cols: 1
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+        SecondaryButton:
+            text: "Back to home"
+            on_release: app.root.current = "home"
+
+
+
+<HomeScreen>:
+    ClickableImage:
+        source: "src/ai.png"
+        size_hint: 0.1,0.1
+        pos_hint: {"x":0.85, "y":0.1}
+        on_release: app.root.current = "assistant"
