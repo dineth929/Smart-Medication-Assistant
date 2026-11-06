@@ -16,7 +16,12 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 
 Window.clearcolor = (0.957, 0.969, 0.984, 1)
-Window.softinput_mode = "below_target"   # keyboard never hides the input
+
+# BUG FIX (Android typing stops after the first key):
+# "below_target" re-lays out the screen after the first keypress and the
+# TextInput loses its keyboard connection. "pan" simply slides the window.
+# If "pan" ever hides the field you are typing in, try "resize" instead.
+Window.softinput_mode = "pan"
 
 
 class Card(BoxLayout):
@@ -68,6 +73,11 @@ SHARED_KV = """
     selection_color: 0.13, 0.42, 0.86, 0.3
     padding: [dp(14), dp(14), dp(14), dp(14)]
     font_size: "16sp"
+    # BUG FIX: turn off Gboard's suggestion/composing bar, which breaks
+    # Kivy's TextInput on Android after the first character.
+    input_type: "text"
+    keyboard_suggestions: False
+    use_bubble: False
 
 <Popup>:
     background: ""
