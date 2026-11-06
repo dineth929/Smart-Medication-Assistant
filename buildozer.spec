@@ -9,7 +9,7 @@ package.domain = org.smartmed
 
 # Folder that contains main.py (project root)
 source.dir = .
-source.include_exts = py,png,jpg,jpeg,kv,atlas,ttf,json
+source.include_exts = py,png,jpg,jpeg,kv,atlas,ttf,json,txt
 source.exclude_dirs = tests, bin, venv, .venv, .buildozer, __pycache__, .git
 source.exclude_patterns = api_key.txt, *.db, *.md
 
@@ -28,7 +28,10 @@ version.filename = %(source.dir)s/main.py
 #   sqlite3   - database (database.py)
 #   openssl   - HTTPS / ssl module
 # ---------------------------------------------------------------
-requirements = python3,kivy==2.3.0,plyer,certifi,pillow,pyjnius
+# FIX: android, sqlite3 and openssl were missing. Without "android" the app
+# crashes on launch (notifications.py imports android.permissions).
+requirements = python3,kivy==2.3.0,plyer,certifi,pillow,pyjnius,android,sqlite3,openssl
+p4a.branch = develop
 
 # ---------------------------------------------------------------
 # Display
@@ -58,21 +61,24 @@ android.permissions = INTERNET,POST_NOTIFICATIONS,RECEIVE_BOOT_COMPLETED,SCHEDUL
 # ---------------------------------------------------------------
 android.api = 34
 android.minapi = 26
-android.ndk = 25b
-android.archs = arm64-v8a, armeabi-v7a
+android.ndk = 28c
+android.ndk_api = 26
+# FIX: one architecture builds in half the time. Add ", armeabi-v7a"
+# back only for a final APK that must run on very old phones.
+android.archs = arm64-v8a
 android.accept_sdk_license = True
 android.allow_backup = False
 android.release_artifact = apk
 
 # ---------------------------------------------------------------
 # Java code: compiles java/org/smartmed/ReminderReceiver.java
+# (the folder name must match: run `ls java java_src`)
 # ---------------------------------------------------------------
 android.add_src = java
 
 # ---------------------------------------------------------------
 # Manifest: the <receiver> block from manifest_extra.xml must end up
-# INSIDE the <application> tag. Check the key against your buildozer
-# version, and verify after the first build (see the build notes).
+# INSIDE the <application> tag.
 # ---------------------------------------------------------------
 android.extra_manifest_application_arguments = ./manifest_extra.xml
 
