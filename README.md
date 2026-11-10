@@ -74,7 +74,7 @@ SmartMedicationAssistant/
 
 ## Run on Windows
 ```powershell
-py -3.11 -m venv .venv
+py -3.12 -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python main.py
@@ -99,7 +99,7 @@ add `java_src/` as `android.add_src`, and `manifest_extra.xml` via
 
 ## Hackathon pitch (DSH Hacks)
 - **Problem:** Building meaningful technical products in AI and healthcare that solve real-world problems.
-- **Solution:** Smart Medication Assistant is an offline-first medicine organizer and smart supply tracker featuring reliable native Android alarms, an offline prescription OCR scanner, and a multi-layer safety-fenced Gemini AI assistant.
+- **Solution:** Smart Medication Assistant is an offline-first medicine organizer and smart supply tracker featuring reliable native Android alarms, a prescription OCR scanner, and a multi-layer safety-fenced Gemini AI assistant.
 - **Demo flow (60s):** add medicine -> set schedule -> alarm fires -> scan
   prescription -> ask the AI a question -> try a dosing question and watch it
   get blocked
