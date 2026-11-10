@@ -71,10 +71,10 @@ android.allow_backup = False
 android.release_artifact = apk
 
 # ---------------------------------------------------------------
-# Java code: compiles java/org/smartmed/ReminderReceiver.java
+# Java code: compiles java_src/org/smartmed/ReminderReceiver.java
 # (the folder name must match: run `ls java java_src`)
 # ---------------------------------------------------------------
-android.add_src = java
+android.add_src = java_src
 
 # ---------------------------------------------------------------
 # Manifest: the <receiver> block from manifest_extra.xml must end up
